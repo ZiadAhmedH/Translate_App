@@ -2,16 +2,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:translator_app/View/DonatorScreen/DonatorScreen.dart';
 import 'package:translator_app/viewModel/Bloc/AuthCubit/auth_cubit.dart';
 import 'package:translator_app/viewModel/Bloc/BlocObserver.dart';
-import 'package:translator_app/viewModel/Bloc/DonatorCubit/donator_cubit.dart';
 import 'package:translator_app/viewModel/Bloc/InternetCheck/internet_cubit.dart';
 import 'package:translator_app/viewModel/Bloc/LanguageCubit/language_cubit.dart';
 import 'package:translator_app/viewModel/Bloc/Translate_Cubit/translate_cubit.dart';
 import 'package:translator_app/viewModel/Bloc/UserCubit/user_cubit.dart';
 import 'package:translator_app/viewModel/Data/Local/SharedKeys.dart';
 import 'package:translator_app/viewModel/Data/Local/SharedPrefrence.dart';
+import 'View/HomeScreen/HomeScreen.dart';
+import 'View/SignUp_Login_Screens/LoginScreen.dart';
 import 'View/SplashScreen.dart';
 import 'firebase_options.dart';
 void main() async{
@@ -42,7 +42,6 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (context) => InternetCubit()..checkConnection(),),
             BlocProvider(create: (context) => AuthCubit(),),
             BlocProvider(create: (context) => UserCubit(),),
-            BlocProvider(create: (context) => DonatorCubit(),),
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
@@ -54,7 +53,7 @@ class MyApp extends StatelessWidget {
           ),
         );
       },
-      child: const DonatorScreen(),
+      child:  LoginScreen(),
     );
   }
 }
